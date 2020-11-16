@@ -1,6 +1,5 @@
 
 package proyecto;
-import javax.swing.JOptionPane;
 public class Paciente {
      private String nombre;
      private String apellido;
