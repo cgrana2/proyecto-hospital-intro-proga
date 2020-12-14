@@ -8,6 +8,7 @@ public class Hemograma {
              
         } else {
             return "bacteria";
+            
         }
     }
 }

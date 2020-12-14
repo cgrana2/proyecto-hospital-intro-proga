@@ -6,16 +6,21 @@ public class Hospital {
     private int capacidad;
     private Hemograma hemograma;
     private Medico[] medicos;
+    private int cantidadMedicos;
+    //agregar matrices de virus y otro de bacterias segun  sintomas 
+    //a
     
     public Hospital(String nombre, int capacidad){
         this.nombre=nombre;
         this.capacidad=capacidad;
         this.hemograma=new Hemograma();
         this.medicos=new Medico[3];
+        this.cantidadMedicos = 0;
     }
     
     public void atender(Paciente paciente ){
       String resultado=this.hacerHemograma(paciente);
+      // crear diagnostico en base a los resultados y sintomas
       if (resultado=="bacteria"){
           
       }
@@ -52,6 +57,12 @@ public class Hospital {
     public void setMedicos(Medico[] medicos) {
         this.medicos = medicos;
     }
+    
+    public void contratarMedico(Medico medico) {
+        this.medicos[this.cantidadMedicos] = medico;
+        this.cantidadMedicos++;
+    }
+    
     
     private String hacerHemograma(Paciente paciente){
      
