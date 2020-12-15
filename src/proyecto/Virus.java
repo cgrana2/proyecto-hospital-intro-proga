@@ -1,19 +1,24 @@
 
 package proyecto;
+
+import java.util.Arrays;
+
 public class Virus {
     private String nombre;
     private String tipo;
-    private String hemograma;
+    private String [] sintomas;
+    private String [] recomendaciones;
     
     public Virus(){
         this.nombre="";
         this.tipo="";
-        this.hemograma="";
+      
     }
-    public Virus(String nombre, String tipo, String hemograma){
+    public Virus(String nombre, String tipo, String[] sintomas, String[] recomendaciones){
         this.nombre=nombre;
         this.tipo=tipo;
-        this.hemograma=hemograma;
+        this.sintomas = sintomas;
+        this.recomendaciones = recomendaciones;
     }
 
     public String getNombre() {
@@ -32,12 +37,40 @@ public class Virus {
         this.tipo = tipo;
     }
 
-    public String getHemograma() {
-        return hemograma;
+    public String[] getSintomas() {
+        return sintomas;
     }
 
-    public void setHemograma(String hemograma) {
-        this.hemograma = hemograma;
+    public void setSintomas(String[] sintomas) {
+        this.sintomas = sintomas;
     }
-    
+      public String[] getRecomendaciones() {
+        return recomendaciones;
+    }
+
+    public void setRecomencadiones(String[] recomendaciones) {
+        this.recomendaciones = recomendaciones;
+    }
+
+    public boolean evaluarSintomas(String[] sintomas) {
+        boolean tieneSintomas = true;
+
+        for (int i=0; i<sintomas.length; i++) {
+            if (Arrays.asList(this.sintomas).contains(sintomas[i]) == false) {
+                tieneSintomas = false;
+            }
+        }
+
+        return  tieneSintomas;
+    }
+
+    public String mostrarRecomendaciones() {
+        String recommendaciones = "";
+
+        for (int i=0; i<this.recomendaciones.length; i++) {
+            recommendaciones += this.recomendaciones[i] + ", ";
+        }
+
+        return recommendaciones;
+    }
 }
